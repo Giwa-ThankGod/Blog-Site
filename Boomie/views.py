@@ -47,6 +47,7 @@ def detail(request, slug, category):
     }
     return render(request, 'boomie/22.html', context)
 
+@login_required(login_url = 'login')
 def reply(request, slug, category, id):
     post = Post.objects.get(slug=slug)
     comment = Comment.objects.filter(post=post)
