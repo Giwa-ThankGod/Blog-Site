@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static %}
+<html>
+    <head>
+        <title>Goodie</title>
+        <link rel="stylesheet" href="{% static 'login_style.css' %}">
+    </head>
+        <div class="login_form">
+            <h1 class="form_head">LOGIN</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form">
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <input type="submit" id="bot" value="login">
+            </form>
+
+            {% for messages in messages %}
+            <div class="msg_success">
+                <p id="alink">{{ messages }}</p>
+            </div>
+            {% endfor %}
+
+            <p id="alink">Don't have an account? <a class="alink" href="{% url 'register' %}">SignUp</a></p>
+        </div>
+    <script>
+        var form = document.getElementsByTagName('input');
+        form[1].placeholder = 'Username';
+        // console.log(form[1])
+        form[2].placeholder = 'Password';
+    </script>
+</html>
+{% endblock %}

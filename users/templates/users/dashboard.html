@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<h1>DASHBOARD</h1>
+<h3>Hello {{ user.username }}</h3>
+    <div>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+{% endblock %}

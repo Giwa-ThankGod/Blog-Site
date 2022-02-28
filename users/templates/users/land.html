@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<h1>LANDING PAGE</h1>
+    <div>
+        
+    <a href="{% url 'register' %}">register</a><br>
+    <a href="{% url 'login' %}">Login</a><br><br>
+    <a href="{% url 'home' %}">View Blog</a>
+    
+    </div>
+{% endblock %}
