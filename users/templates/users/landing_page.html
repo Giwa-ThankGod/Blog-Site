@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remox</title>
-    <link rel="stylesheet" href="landingstyle.css">
+    <link rel="stylesheet" href="{% static 'landingstyle.css'%}">
 </head>
 <body>
     <div class="container">
@@ -21,8 +23,8 @@
                 <li><a href="" class="active"  >Home</a></li>
                 <li><a href="" >Portfolio</a></li>
                 <li><a href="{% url 'home' %}" >Blog</a></li>
-                <li><a href="" >Contact Us</a></li>
-                <li><a href="" >About</a></li>
+                <li><a href="{% url 'register' %}" >Register</a></li>
+                <li><a href="{% url 'login' %}" >Login</a></li>
             </ul>
         </div>
 	</div>
@@ -44,7 +46,7 @@
             </div>
         </div>
         <div class="third_content">
-            <img src="image2.png" alt="">
+            <img src="{%  %}" alt="">
             <div class="third_text">
                 <h1>Which TV product is better LG, Samsung, Philip?</h1>
                 <p>2 days ago</p>
@@ -83,4 +85,4 @@
 	</footer>
 <script src="1js.js"></script>
 </body>
-</html>
+{% endblock %}
