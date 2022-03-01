@@ -9,7 +9,7 @@ from users.forms import CustomForm
 from users.decorators import unauthorised_user
 
 def landing(request):
-    return render(request, 'users/land.html')
+    return render(request, 'users/landing_page.html')
 
 
 #Helps us to authenticate this page.
