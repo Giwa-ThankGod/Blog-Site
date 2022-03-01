@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('boomie/', include('Boomie.urls')),
     path('', include('users.urls')),
-    # path('summernote/', include('django_summernote.urls')),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
