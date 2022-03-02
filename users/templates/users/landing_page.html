@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block page_content %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'landingstyle.css'%}">
+    <link rel="stylesheet" href="{% static 'landingstyle.css' %}">
 <body>
     <div class="container">
 		<div class="navbar" >
 			
 			<h3 class="logo" >Tro<em>nix</em></h3>
 	
-			<!-- <div class="burger" >
-				<img src="Menu.png" class="menu" >
-				<img src="Cancel.png" class="menux" >
-			</div> -->
+			<div class="burger" >
+				<img src="{% static 'images/Menu.png' %}" class="menu" >
+				<img src="{% static 'images/Cancel.png' %}" class="menux" >
+			</div>
             <ul class="list">
                 <li><a href="" class="active"  >Home</a></li>
                 <li><a href="" >Portfolio</a></li>

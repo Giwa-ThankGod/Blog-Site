@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=dau+s9e*0rem!&kh#vx$oum8z4)eev6+0sfn_=+spy#-k0%(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['boomie.herokuapp.com','remox-hosting.herokuapp.com', '127.0.0.1']
 
@@ -120,13 +120,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = 'static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'Boomie/static')
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'Boomie/static')
+]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
