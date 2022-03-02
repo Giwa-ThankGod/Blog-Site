@@ -39,6 +39,19 @@ li{
 	color: rgb(250, 195, 94);
 }
 
+.burger{
+	display: none;
+}
+
+.menu, .menux{
+	width: 15%;
+	float: right;
+}
+
+.menux{
+	display: none;
+}
+
 .content{
     width: 100%;
     background-repeat: no-repeat;
@@ -217,8 +230,19 @@ em{
 }
 
 @media screen and (max-width: 480px) {
-    ul{
+    
+    .burger{
         display: block;
+    }
+
+    .menu, .menux{
+        width: 15%;
+        float: right;
+    }
+
+    ul{
+        display: none;
+        margin: auto
     }
 
     .link{
@@ -288,6 +312,8 @@ em{
         margin-top: 20px;
     }
     
+
+
     .about_text p{
         margin: 5px 0px;
     }
