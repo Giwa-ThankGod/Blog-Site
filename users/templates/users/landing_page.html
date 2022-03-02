@@ -1,19 +1,12 @@
 {% extends 'base.html' %}
 {% block page_content %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remox</title>
     <link rel="stylesheet" href="{% static 'landingstyle.css'%}">
-</head>
 <body>
     <div class="container">
 		<div class="navbar" >
 			
-			<h3 class="logo" >Remox.</h3>
+			<h3 class="logo" >Tro<em>nix</em></h3>
 	
 			<!-- <div class="burger" >
 				<img src="Menu.png" class="menu" >
@@ -22,21 +15,22 @@
             <ul class="list">
                 <li><a href="" class="active"  >Home</a></li>
                 <li><a href="" >Portfolio</a></li>
-                <li><a href="{% url 'home' %}" >Blog</a></li>
-                <li><a href="{% url 'register' %}" >Register</a></li>
-                <li><a href="{% url 'login' %}" >Login</a></li>
+                <li><a href="{% url 'home' %}" >Visit Blog</a></li>
+                <li><a href="{% url 'register' %}"><button class="link">Register</button></a></li>
+                <li><a href="{% url 'login' %}" ><button class="link">Login</button></a></li>
             </ul>
         </div>
 	</div>
-    
-    <img class="content" src="image2.png" alt="">
-    <div class="content_text">
-        <h1 class="content_head">We offer <em>free information</em> on Electronics</h1>
-        <p><em>Do you want to know more about our offers and what we stand for?</em></p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem molestiae ad, rerum libero eligendi porro corrupti aliquam voluptatum praesentium quae ducimus provident dolorem reiciendis doloribus maiores ipsum architecto dolorum perferendis!</p>
-        <button class="but">Learn More</button>
+    <div class="cont">
+        <img class="content" src="image2.png" alt="">
+        <div class="content_text">
+            <h1 class="content_head">We offer <em>free information</em> on Electronics</h1>
+            <p><em>Do you want to know more about our offers and what we stand for?</em></p>
+            <p class="content_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem molestiae ad, rerum libero eligendi </p>
+            <button class="but">Learn More</button>
+        </div>
     </div>
-
+    
     <section class="third">
         <div class="third_content">
             <img src="image1.png" alt="">
@@ -46,7 +40,7 @@
             </div>
         </div>
         <div class="third_content">
-            <img src="{%  %}" alt="">
+            <img src="image2.png" alt="">
             <div class="third_text">
                 <h1>Which TV product is better LG, Samsung, Philip?</h1>
                 <p>2 days ago</p>
@@ -61,14 +55,17 @@
         </div>
     </section>
     
-    <div class="about">
-        <div class="about_text">
-            <h1>Reach Out to Us Now!!!</h1>
-            <h4>Tired of taking your Tv set for repair?</h4>
-            <p>Then contact us to help you fix it within 24hours</p>
-            <button class="">Contact Us</button>
+    <div class="abt">
+        <h1 class="reach_out">Reach Out to Us Now!!!</h1>
+        <div class="about">
+            <div class="about_text">
+                <h1 class="reach_in">Reach Out to Us Now!!!</h1>
+                <h4>Tired of taking your Tv set for repair?</h4>
+                <p>Then contact us to help you fix it within 24hours</p>
+                <button class="">Contact Us</button>
+            </div>
+            <img src="clock.png" alt="">
         </div>
-        <img src="clock.png" alt="">
     </div>
     <br><br>
     <section>
@@ -83,6 +80,5 @@
 		<p class="ltext" id="ftext" >Copyright ©2022 All rights reserved | </p>
 		<p class="ltext" id="ftext" >Terms & Condition | Privacy Policy</p>
 	</footer>
-<script src="1js.js"></script>
-</body>
+<script src="{% static '1js.js' %}"></script>
 {% endblock %}

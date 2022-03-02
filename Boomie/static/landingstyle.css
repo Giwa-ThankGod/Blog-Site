@@ -130,9 +130,12 @@ em{
     margin: 8px 0px;
 }
 
-.about{
+.reach_out{
+    display: none;
+}
+
+.abt{
     margin-top: 250px;
-    display: flex;
     background-color: #fff;
     border-top: 2px solid rgb(250, 195, 94);
     border-bottom: 2px solid rgb(250, 195, 94);
@@ -142,15 +145,19 @@ em{
     justify-content: space-around;
 }
 
+.about{
+    display: flex;
+}
+
 .about img, .about_text{
     width: 50%;
 }
 
-.about_text{
-    justify-content: space-around;
+.about_text p{
+    margin: 5px 0px;
 }
 
-.about h1{
+.about .reach_in{
     font-size: 40px;
     color: rgb(250, 195, 94);
 }
@@ -161,9 +168,6 @@ em{
 .about img{
     width: 200px;
     height: 200px;
-    /* margin-left: 200px; */
-    /* float: right; */
-    /* border-radius: 90%; */
 }
 
 .about button{
@@ -222,5 +226,100 @@ em{
     }
     to{
         transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    ul{
+        display: block;
+    }
+
+    .link{
+        background-color: rgb(245, 186, 76);
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        color: #fff;
+        padding: 5px 20px;
+    }
+    .content{
+        width: 100%;
+        background-repeat: no-repeat;
+    }
+    
+    
+    .content_text{
+        width: 50%;
+        position: absolute;
+        top: 200px;
+        right: 10px;
+    }
+
+    .content_head{
+        font-size: 28px;
+        line-height: 1;
+    }
+    
+    .content_text p{
+        font-size: 13px;
+    }
+    
+    .but{
+        margin-top: auto;
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    .but:hover{
+        background-color: rgb(250, 195, 94);
+        color: #fff;
+    }
+    
+    
+    .third{
+        display: block;
+        position: static;
+    }
+    
+    .third_content{
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .reach_out{
+        display: block;
+        font-size: 40px;
+        color: rgb(250, 195, 94);
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .reach_in{
+        display: none;
+    }
+
+    .abt{
+        margin-top: 20px;
+    }
+    
+
+
+    .about_text p{
+        margin: 5px 0px;
+    }
+
+    .about button{
+        margin-top: 20px;
+        padding: 10px 20px;
+    }
+
+    .newsletter .bot{
+        width: 105%;
+        border-radius: 3px;
+    }
+
+    #ftext{
+        text-align: center;
+        margin: 10px 0px;
+        font-size: 16px;
     }
 }
