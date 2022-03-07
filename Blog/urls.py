@@ -24,7 +24,6 @@ urlpatterns = [
     path('boomie/', include('Boomie.urls')),
     path('', include('users.urls')),
     path('summernote/', include('django_summernote.urls')),
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()#This serves static files
