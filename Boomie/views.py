@@ -7,7 +7,7 @@ from .filters import TitleFilter
 from django.contrib.auth.models import User
 
 # Create your views here.
-@login_required(login_url = 'login')
+# @login_required(login_url = 'login')
 def index(request):
     post = Post.objects.all()
     # .order_by('-created_on')
@@ -20,7 +20,7 @@ def index(request):
     }
     return render(request,'boomie/11.html', context)
 
-@login_required(login_url = 'login')
+# @login_required(login_url = 'login')
 def detail(request, slug, category):
     post = Post.objects.get(slug=slug)
     
@@ -74,7 +74,7 @@ def reply(request, slug, category, id):
 
     return render(request, 'boomie/comment.html', context)
 
-@login_required(login_url = 'login')
+# @login_required(login_url = 'login')
 def category(request, category):
     posts = Post.objects.all()
     post = Post.objects.filter(categories__name__contains= category).order_by('-created_on')
