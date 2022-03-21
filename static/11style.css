@@ -1,0 +1,371 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+hr{
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+a{
+    text-decoration: none;
+    /* color: #fff; */
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin: 0px 30px;
+}
+
+/* .logo{
+} */
+
+.burger{
+    display: none;
+}
+
+.list{
+    display: flex;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.list li{
+    list-style: none;
+    padding-left: 60px;
+}
+.list li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.list li .active{
+    color: rgb(250, 142, 19);
+}
+.sub-list{
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 500px;
+    padding: 10px 30px;
+    background-color: #fff;
+}
+.sub-list li{
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+.list li:hover .sub-list{
+    display: block;
+}
+
+.links{
+    width: 30px;
+    /* display: none; */
+    padding-left: 10px;
+}
+.menu, .menux{
+    width: 50px;
+    float: right;
+}
+
+.search-bar{
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+}
+input{
+    width: 500px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    outline: none;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    
+}
+
+.btn{
+    width: 10%;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    /* border: 1px solid #ddd; */
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+    position: absolute;
+    top: 95px;
+    right: 350px;
+    margin-left: -200px;
+}
+
+.heading{
+    text-align: center;
+    font-size: 36px;
+    margin: 20px 0px;
+}
+
+.img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.post{
+    margin: 30px 100px;
+    justify-content: space-around;
+}
+
+.post span a{
+    text-decoration: none;
+    color: #000;
+}
+.post-tag, .cat-text{
+    margin: 10px 0px;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.post h4{
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.post p{
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.btnn{
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+.cat{
+    margin: 70px 100px 0px 100px;
+    font-size: 24px;
+}
+.cat-post{
+    margin: 20px 100px;
+    display: flex;
+}
+
+.cat-img{
+    width: 25%;
+    border-radius: 5px;
+}
+
+.cat-text{
+    margin-left: 25px;
+    position: relative;
+    top: 83px;
+}
+
+.cat-text #head{
+    margin: 10px 0px;
+    font-size: 20px;
+}
+
+.news{
+    background-color: #ddd;
+    padding: 30px 100px;
+}
+
+.news h3{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.news input{
+    width: 90%;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 15px;
+}
+
+.news .sbtn{
+    background-color: rgb(250, 142, 19);
+    width: 10%;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+}
+
+footer{
+    margin: 30px 0px;
+    text-align: center;
+}
+
+.footer-social{
+    margin-bottom: 10px;
+}
+.footer-social .links{
+    width: 25px;
+    background-color: #ddd;
+    padding: 5px;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+.ltext{
+    font-weight: lighter;
+}
+
+
+/* MOBILE VIEW */
+
+@media screen and (max-width: 600px){
+    /* body{
+        overflow-x: hidden;
+    } */
+    .burger{
+        display: block;
+    }
+    
+    .list{
+        list-style: none;
+        display: none;
+        background-color: #fff;
+        margin: 30px 50px;
+        padding: 10px 100px;
+        position: absolute;
+        top: 60px;
+        transform: translateX(30%);
+        /* left: 100px; */
+        z-index: 1;
+    }
+    
+    .list li{
+        text-align: center;
+        font-weight: bold;
+        color: #000;
+        padding: 20px 0px;
+    }
+    .sub-list{
+        display: none;
+        font-size: 13px;
+        background-color: #fff;
+        position: relative;
+        top: 15px;
+        left: 50px;
+    }
+
+    .sub-list li{
+        list-style: square;
+        text-transform: lowercase;
+    }
+
+    .list li:hover .sub-list{
+        display: block;
+    }
+    
+    .links{
+        width: 20px;
+        display: none;
+        padding-left: 5px;
+    }
+
+    .menu, .menux{
+        width: 15%;
+    }
+    
+    .menux{
+        display: none;
+    }
+
+    .btn{
+        display: none;
+    }
+
+    .search input{
+        display: flex;
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -250px;
+    }
+
+    .heading{
+        font-size: 26px;
+    }
+
+    .post{
+        margin: 30px 10px;
+    }
+    
+    .post h4{
+        font-size: 30px;
+    }
+    
+    .cat{
+        margin: 60px 0px 0px 10px;
+        font-size: 24px;
+    }
+    .cat-post{
+        margin: 25px 10px;
+        display: flex;
+    }
+    
+    .cat-img{
+        width: 50%;
+    }
+    
+    .cat-text{
+        max-width: 50%;
+        margin: 0px 25px;
+        position: relative;
+        top: 0px;
+    }
+    
+    .cat-text span{
+        font-size: 14px;
+        font-weight: lighter;
+    }
+    .cat-text #head{
+        margin: 10px 0px;
+        font-size: 18px;
+    }
+    
+    .news{
+        padding: 30px 10px;
+    }
+    
+    .news input{
+        width: 95%;
+        height: 30px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        padding-left: 15px;
+    }
+    
+    .news .sbtn{
+        margin-top: 10px;
+        width: 95%;
+    }
+    
+    footer{
+        margin: 30px 0px;
+        text-align: center;
+    }
+    
+    .footer-social{
+        margin-bottom: 10px;
+    }
+    .footer-social .links{
+        width: 25px;
+        background-color: #ddd;
+        padding: 5px;
+        margin-left: 40px;
+        border-radius: 5px;
+    }
+}
