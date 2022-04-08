@@ -2,18 +2,20 @@
 {% block page_content %}
 {% load static %}
     <link rel="stylesheet" href="{% static 'landingstyle.css' %}">
-<body>
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&family=Poppins:wght@500&family=Roboto:wght@100&display=swap');
+	</style>
     <div class="container">
 		<div class="navbar" >
 			
-			<h3 class="logo" >Tro<em>nix</em></h3>
+			<h3 class="logo" >tro<em class="em">nix</em></h3>
 	
 			<div class="burger" >
 				<img src="{% static 'images/menu.png' %}" class="menu" >
 				<img src="{% static 'images/cancel.png' %}" class="menux" >
 			</div>
             <ul class="list">
-                <li><a href="" class="active"  >Home</a></li>
+                <li><a href="{% url 'home' %}" class="active">Home</a></li>
                 <li><a href="" >Portfolio</a></li>
                 <li><a href="{% url 'home' %}" >Visit Blog</a></li>
                 <li><a href="{% url 'register' %}"><button class="link">Register</button></a></li>
@@ -24,39 +26,25 @@
     <div class="cont">
         <img class="content" src="{% static 'images/image2.png' %}" alt="image1">
         <div class="content_text">
-            <h1 class="content_head">We offer <em>free information</em> on Electronics</h1>
-            <p><em>Do you want to know more about our offers and what we stand for?</em></p>
-            <p class="content_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem molestiae ad, rerum libero eligendi </p>
+            <h1 class="content_head">We offer <em class="textem">free information</em> on Electronics</h1>
+            <p><em class="textem">Do you want to know more about our offers and what we stand for?</em></p>
             <button class="but">Learn More</button>
         </div>
     </div>
     
     <section class="third">
+        {% for post in post %}
         <div class="third_content">
-            <img src="{% static 'images/image2.png' %}" alt="">
+            <img src="{{ post.images.url }}" alt="" width="500px">
             <div class="third_text">
-                <h1>What to know before and after getting a TV set in Nigeria</h1>
-                <p>2 days ago</p>
+                <h1><a href="{% url 'detail' post.categories.get post.slug %}">{{ post.title }}</a></h1>
+                <p>{{ post.created_on | date }}</p>
             </div>
         </div>
-        <div class="third_content">
-            <img src="{% static 'images/image1.png' %}" alt="">
-            <div class="third_text">
-                <h1>Which TV product is better LG, Samsung, Philip?</h1>
-                <p>2 days ago</p>
-            </div>
-        </div>
-        <div class="third_content">
-            <img src="{% static 'images/image3.png' %}" alt="">
-            <div class="third_text">
-                <h1></h1>
-                <p>2 days ago</p>
-            </div>
-        </div>
+        {%  endfor %}
     </section>
     
     <div class="abt">
-        <h1 class="reach_out">Reach Out to Us Now!!!</h1>
         <div class="about">
             <div class="about_text">
                 <h1 class="reach_in">Reach Out to Us Now!!!</h1>

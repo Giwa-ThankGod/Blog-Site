@@ -7,7 +7,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('boomie/', include('Boomie.urls')),
-    path('', include('users.urls')),
+    path('user/', include('users.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
 

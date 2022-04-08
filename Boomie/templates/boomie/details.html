@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static %}
+
+    <script src="https://use.fontawesome.com/514ee00cdd.js"></script>
+
+    <link rel="stylesheet" href="{% static 'details.css' %}" >
+	<link rel="stylesheet" href="{% static 'landingstyle.css' %}" >
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&family=Poppins:wght@500&family=Roboto:wght@100&display=swap');
+	</style>
+    <div class="container">
+		<div class="navbar" >
+			
+			<h3 class="logo" >tro<em>nix</em></h3>
+	
+			<div class="burger" >
+				<img src="{% static 'images/menu.png' %}" class="menu" >
+				<img src="{% static 'images/cancel.png' %}" class="menux" >
+			</div>
+            <ul class="list">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="" >Portfolio</a></li>
+                <li><a href="{% url 'home' %}" >Visit Blog</a></li>
+                <li><a href="{% url 'register' %}"><button class="link">Register</button></a></li>
+                <li><a href="{% url 'login' %}" ><button class="link">Login</button></a></li>
+            </ul>
+        </div>
+	</div>
+    <!-- <span class="cat-head">Home/{{ post.categories.get.name }}</span> -->
+    <div class="detail">
+        <div class="box1">
+            <div class="post" >
+                <h4>{{ post.title }}</h4>
+                <div class="post-tag">
+                    <span>{{ post.created_on }} | </span>
+                    <span><a class="textem" href="{% url 'cat' category=post.categories.get %}">{{ post.categories.get }}</a></span>
+                    <span> | {{ post.views }} views</span><br>
+                    
+                </div>
+                <img class="img" src="{{ post.images.url }}" ><br>
+                <p class="body" >{{ post.body|safe }}</p>
+            </div>
+        
+            <div class="comment">
+                <h3>Comments:</h3>
+                {% for comments in comment %}
+                    <hr>
+                    <h4>{{ comments.user }}</h4>
+                    <p>{{ comments.body }} <br>({{ replycount }})replies</p>
+                    <p class="reply"><a style="color: rgb(245, 186, 76);" href="{% url 'reply' post.categories.get post.slug comments.id %}"><span class="hidden">{{ comments.id }}</span>Reply</a></p><br><br>
+                {% endfor %}
+        
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="cover">
+                        {{ form.body }}
+                        <button class="formbtn" type="submit">comment</button>
+                    </div>
+                </form>
+            </div>
+        
+            <br><br>
+        </div>
+
+        <div class="box2">
+            <div class="info">
+                <h3 class="head">Recommended:</h3>
+                <div class="recommended"></div>
+                {% for post in recpost %}
+                    <div class="repost">
+                        <img src="{{ post.images.url }}" alt="">
+                        <h3><a href="{% url 'detail' post.categories.get post.slug %}">{{ post.title }}</a></h3>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="info">
+                <h3 class="head">Related:</h3>
+                <div class="recommended"></div>
+                {% for post in relpost %}
+                    <div class="repost">
+                        <img src="{{ post.images.url }}" alt="">
+                        <h3><a href="{% url 'detail' post.categories.get post.slug %}">{{ post.title }}</a></h3>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+		<div class="newsletter" >
+			<h3>Subscribe to our newsletter</h3>
+			<input type="gmail" placeholder="Enter your email"><br>
+			<button class="bot">subscribe</button>
+		</div>
+	</section>
+	
+	<footer>
+		<p class="ltext" id="ftext" >Copyright ©2022 All rights reserved | </p>
+		<p class="ltext" id="ftext" >Terms & Condition | Privacy Policy</p>
+	</footer>
+    <script src="{% static '1js.js' %}"></script>
+    <script src="https://use.fontawesome.com/514ee00cdd.js"></script>
+{% endblock %}

@@ -11,32 +11,40 @@ a{
 
 .logo{
     font-size: 30px;
+    color: #fff;
 }
 
 .navbar{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	padding: 20px;
+	padding: 15px 20px;
+    background-color: rgb(250, 195, 94);
 }
 
 ul{
 	list-style: none;
 	display: flex;
-	background-color: #fff;
+	background-color: none;
 	margin: 0px 30px;
 }
 
 li{
 	text-align: center;
 	font-weight: bold;
-	color: #000;
+	color: rgb(250, 195, 94);
 	padding: 5px 40px;
-    border-left: 2px solid rgb(250, 195, 94);
+    border-left: 1px solid rgb(250, 195, 94);
+}
+li a{
+    color: #fff;
 }
 
 .active{
 	color: rgb(250, 195, 94);
+    background-color: #fff;
+    padding: 5px 20px;
+    border-radius: 25px;
 }
 
 .burger{
@@ -44,7 +52,7 @@ li{
 }
 
 .menu, .menux{
-	width: 15%;
+	width: 50px;
 	float: right;
 }
 
@@ -52,9 +60,20 @@ li{
 	display: none;
 }
 
+.link{
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    color: rgb(250, 195, 94);
+    padding: 5px 20px;
+    border-radius: 25px;
+}
+
 .content{
     width: 100%;
     background-repeat: no-repeat;
+    position: relative;
 }
 
 
@@ -83,10 +102,12 @@ li{
     margin-bottom: 5px;
     animation: ptext 3s;
 }
-
+.textem{
+    color: rgb(250, 195, 94);
+}
 em{
     font-style: normal;
-    color: rgb(250, 195, 94);
+    color: #000;
 }
 
 .but{
@@ -107,18 +128,16 @@ em{
 .third{
     display: flex;
     width: 100%;
-    position: absolute;
-    top: 800px;
-    z-index: 1;
+
 }
 
 .third_content{
-    width: 50%;
+    width: 70%;
     margin: 0px 10px;
     padding: 5px;
     text-align: center;
     background-color: #fff;
-    box-shadow: 3px 3px 5px -1px rgb(250, 195, 94);
+    box-shadow: 3px 3px 5px -1px #ddd;
 }
 
 .third img{
@@ -135,7 +154,7 @@ em{
 }
 
 .abt{
-    margin-top: 250px;
+    margin-top: 50px;
     background-color: #fff;
     border-top: 2px solid rgb(250, 195, 94);
     border-bottom: 2px solid rgb(250, 195, 94);
@@ -147,6 +166,7 @@ em{
 
 .about{
     display: flex;
+    justify-content: space-between;
 }
 
 .about img, .about_text{
@@ -182,7 +202,7 @@ em{
 .newsletter{
     padding: 50px;
     background-color: rgb(250, 195, 94);
-    box-shadow: 3px 3px 5px -1px rgb(250, 195, 94);
+    box-shadow: 3px 3px 5px -1px #ddd;
     justify-content: space-between;
     text-align: center;
 }
@@ -199,8 +219,8 @@ em{
 
 .newsletter .bot{
     width: 100%;
-    background-color: #fff;
-    padding: 10px 0px;
+    background-color: #000;
+    padding: 6px 0px;
     border: none;
     font-size: 16px;
     font-weight: bold;
@@ -229,41 +249,57 @@ em{
     }
 }
 
-@media screen and (max-width: 480px) {
-    
+@media screen and (max-width: 810px){
+    .navbar{
+        justify-content: space-between;
+        padding: 6px;
+        
+    }
+    em{
+        font-style: normal;
+        color: #000;
+    }
     .burger{
         display: block;
     }
-
-    .menu, .menux{
-        width: 15%;
-        float: right;
-    }
-
-    ul{
+    .list{
         display: none;
-        margin: auto
     }
-
-    .link{
-        background-color: rgb(245, 186, 76);
-        font-size: 14px;
+    ul{
+        position: absolute;
+        top: 7%;
+        width: 100%;
+        height: 100vh;
+        margin: 0px;
+        margin-left: -7px;
+        padding-top: 70px;
+        z-index: 1;
+        background-color: rgb(250, 195, 94);
+    }
+    
+    li{
+        text-align: center;
         font-weight: bold;
+        color: #000;
+        padding: 0px;
         border: none;
-        color: #fff;
-        padding: 5px 20px;
+        margin: 20px 0px;
+        /* border-bottom: 1px solid rgb(250, 195, 94); */
     }
+    /* li:last-child{
+        border: none;
+    } */
     .content{
         width: 100%;
         background-repeat: no-repeat;
     }
     
-    
     .content_text{
-        width: 50%;
+        width: 80%;
         position: absolute;
-        top: 200px;
+        top: 15%;
         right: 10px;
+        margin: 0px 30px;
     }
 
     .content_head{
@@ -282,10 +318,9 @@ em{
     }
     
     .but:hover{
-        background-color: rgb(250, 195, 94);
+        background-color: rgb(17, 15, 12);
         color: #fff;
     }
-    
     
     .third{
         display: block;
@@ -304,16 +339,22 @@ em{
         text-align: center;
         margin-bottom: 15px;
     }
-    .reach_in{
-        display: none;
-    }
-
     .abt{
+        padding: 10px 20px;
+    }
+    .about{
         margin-top: 20px;
+        display: block;
     }
     
-
-
+    .about_text{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .about img{
+        width: 100px;
+        height: 100px;
+    }
     .about_text p{
         margin: 5px 0px;
     }
@@ -332,5 +373,37 @@ em{
         text-align: center;
         margin: 10px 0px;
         font-size: 16px;
+    }
+}
+
+@media only screen and (width: 810px){
+    ul{
+        top: 5%;
+        margin: 0px;
+    }
+    .content_text{
+        width: 80%;
+        position: absolute;
+        top: 20%;
+        right: 30px;
+        margin: 0px 30px;
+    }
+    .content_head{
+        font-size: 55px;
+        line-height: 1;
+    }
+    
+    .content_text p{
+        font-size: 18px;
+    }
+}
+
+@media screen and (width: 360px){
+    .content_text{
+        width: 80%;
+        position: absolute;
+        top: 10%;
+        right: 30px;
+        margin: 0px 30px;
     }
 }

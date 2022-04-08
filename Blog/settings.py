@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'cloudinary',
+    'cloudinary_storage',
     'django_summernote',
     'Boomie',
 ]
@@ -128,7 +130,7 @@ STATIC_URL = 'static/'
 #     os.path.join(BASE_DIR, 'Boomie/static')
 # ]
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
@@ -136,6 +138,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hxq5pgxir',
+    'API_KEY': '347529347872777',
+    'API_SECRET': 'lzI-qBEdUywRT3JG52f3Cnd9d9Y',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "dashboard"

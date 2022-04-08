@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.hidden{
+    display: none;
+}
+.detail{
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+}
+.box1{
+    width: 70%;
+}
+.box2{
+    padding: 10px 10px;
+    width: 30%;
+    margin: 0px 10px;
+    /* background-color: rgb(238, 238, 238); */
+}
+
+.heading{
+    text-align: center;
+    font-size: 36px;
+    margin: 0px;
+}
+
+.img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.post{
+    margin: 10px 10px;
+    justify-content: space-around;
+}
+
+.post span a{
+    text-decoration: none;
+}
+.post-tag, .cat-text{
+    margin: 10px 0px;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.post h4{
+    font-size: 30px;
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;   
+}
+
+.post p{
+    margin-bottom: 10px;   
+}
+hr{
+    border: none;
+    border: .01px solid rgb(245, 186, 76);
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.comment{
+    margin: 0px 10px;
+}
+.reply{
+    margin-top: 18px;
+}
+.comment h3{
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.head{
+    margin-bottom: 10px;
+    color: rgb(245, 186, 76);
+}
+.cover{
+    display: block;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0px 10px;
+}
+.form{
+    min-width: 100%;
+    max-width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border: none;
+    border: 1px solid #ddd;
+    border-radius: 250px;
+    outline: none;
+}
+.formbtn{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 250px;
+    background-color: #000;
+    color: rgb(245, 186, 76);
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/* side details */
+.info{
+    margin-bottom: 50px;
+    margin-right: 10px;
+}
+
+.repost{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.repost img{
+    width: 100%;
+}
+.repost h3{
+    width: 100%;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 810px) {
+    .detail{
+        display: block;
+    }
+    .box1{
+        width: 100%;
+    }
+    .box2{
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    .comment h3, .head{
+        text-align: center;
+    }
+}

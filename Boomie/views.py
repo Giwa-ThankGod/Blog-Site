@@ -9,8 +9,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 # @login_required(login_url = 'login')
 def index(request):
-    post = Post.objects.all()
-    # .order_by('-created_on')
+    post = Post.objects.all().order_by('-created_on')[:4]
     
     search = TitleFilter(request.GET, queryset=post)
     post = search.qs
@@ -18,11 +17,14 @@ def index(request):
         'post': post,
         'search': search,
     }
-    return render(request,'boomie/11.html', context)
+    return render(request,'boomie/landing.html', context)
 
 # @login_required(login_url = 'login')
 def detail(request, slug, category):
     post = Post.objects.get(slug=slug)
+    posts = Post.objects.all().order_by('-created_on')[:4]
+    relpost = Post.objects.filter(categories__name__contains= category)[:3]
+    recpost = Post.objects.filter(recommended=True).order_by('-created_on')[:3]
     
     form = CommentForm()
     if request.method == 'POST':
@@ -36,16 +38,20 @@ def detail(request, slug, category):
             comment.save()
     
     comment = Comment.objects.filter(post=post)
-    
     post.views += 1
     post.save()
 
     context = {
         'post': post,
+        'posts': posts,
+        'relpost': relpost,
+        'recpost': recpost,
         'form': form,
         'comment': comment,
+        'reply': reply,
+        # 'replycount': replycount,
     }
-    return render(request, 'boomie/22.html', context)
+    return render(request, 'boomie/details.html', context)
 
 @login_required(login_url = 'login')
 def reply(request, slug, category, id):
@@ -64,6 +70,7 @@ def reply(request, slug, category, id):
             )
             reply.save()
     reply = ReplyComment.objects.filter(comment=comment_id)
+    replycount = reply.count()
 
     context = {
         'post': post,
@@ -71,7 +78,8 @@ def reply(request, slug, category, id):
         'reply': reply,
         'comment_id': comment_id,
     }
-
+    
+    print(replycount)
     return render(request, 'boomie/comment.html', context)
 
 # @login_required(login_url = 'login')

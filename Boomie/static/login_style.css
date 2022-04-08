@@ -6,9 +6,15 @@ body{
     font-family: Arial;
     background-color: rgb(54, 167, 157);
 }
+.box{
+    position: relative;
+    top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .login_form{
     width: 300px;
-    margin: 90px auto;
     padding: 30px 50px;
     border: none;
     background-color: #fff;

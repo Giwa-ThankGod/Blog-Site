@@ -7,8 +7,17 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from users.forms import CustomForm
 from users.decorators import unauthorised_user
+from Boomie.models import Category, Post, Comment, ReplyComment
+from Boomie.filters import TitleFilter
 
 def landing(request):
+    post = Post.objects.all().order_by('-created_on')
+    # search = TitleFilter(request.GET, queryset=post)
+    # post = search.qs
+    context = {
+        'post': post,
+        # 'search': search,
+    }
     return render(request, 'users/landing_page.html')
 
 

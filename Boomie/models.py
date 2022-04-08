@@ -13,10 +13,11 @@ class Post(models.Model):
     author = models.CharField(max_length=25, default='Tijano')
     slug = models.CharField(max_length=225)
     body = models.TextField()
-    images = models.ImageField(default="Digital18.png",blank=True)
+    images = models.ImageField(upload_to = "media/",default="Digital18.png",blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
     views = models.IntegerField()
+    recommended = models.BooleanField(default=False)
     categories = models.ManyToManyField("Category", related_name='posts')
 
     def __str__(self):
