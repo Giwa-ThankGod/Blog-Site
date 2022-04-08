@@ -332,19 +332,15 @@ em{
         margin: 20px auto;
     }
 
-    .reach_out{
-        display: block;
-        font-size: 40px;
-        color: rgb(250, 195, 94);
-        text-align: center;
-        margin-bottom: 15px;
-    }
     .abt{
         padding: 10px 20px;
     }
+    .about .reach_in {
+        font-size: 30px;
+    }
     .about{
         margin-top: 20px;
-        display: block;
+        display: flex;
     }
     
     .about_text{
@@ -352,8 +348,9 @@ em{
         width: 100%;
     }
     .about img{
-        width: 100px;
-        height: 100px;
+        margin-top: 120px;
+        width: 150px;
+        height: 150px;
     }
     .about_text p{
         margin: 5px 0px;
