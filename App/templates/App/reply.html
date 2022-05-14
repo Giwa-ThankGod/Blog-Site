@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static %}
+<style>
+    .search-btn {
+        display: none;
+    }
+</style>
+<br>
+<div class="container">
+    <div class="section-title" id="reply_count">
+
+    </div>
+    <div class="post-comments">
+        <!-- comment -->
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object" src="{% static 'img/avatar.png' %}" alt="">
+            </div>
+            <div class="media-body" id="replies">
+                <div class="media-heading">
+                    <h4>{{ comment.name }}</h4>
+                    <span class="time">{{ comment.created_on | date }} at {{ comment.created_on | time }}</span>
+                </div>
+                <p>{{ comment.message }}</p>
+
+                <!-- comment -->
+
+                <!-- /comment -->
+            </div>
+        </div>
+        <!-- /comment -->
+    </div>
+
+    <div class="section-row">
+        <div class="section-title">
+            <h2>Leave a reply</h2>
+            <p>your email address will not be published. required fields are marked *</p>
+        </div>
+        <form id="reply_form" class="post-reply">
+            {% csrf_token %}
+            <div class="row">
+
+                <!-- Success Message -->
+                <div id="message">
+
+                </div>
+                <!-- End -->
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <span>Name *</span>
+                        {{ reply_form.rname }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <span>Email *</span>
+                        {{ reply_form.remail }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        {{ reply_form.rmessage }}
+                    </div>
+                    <button class="primary-button">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+{% block javascript %}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $.ajax({
+            type: 'GET',
+            url: "{% url 'getReplies' comment.id %}",
+            success: function (response) {
+
+                $("#message").empty()
+
+                console.log(response)
+
+                var reply_count = "\
+				<div class='section-title' id='reply_count'>\
+					<h2 id='count'>"+ response.reply.length + " Replies</h2>\
+				</div>"
+
+                $("#reply_count").append(reply_count)
+
+                for (var key in response.reply) {
+                    var temp = "\
+                    <div class='media'>\
+                        <div class='media-left'>\
+                            <img class='media-object' src='{% static 'img/avatar.png' %}' alt='>\
+                        </div>\
+                        <div class='media-body'>\
+                            <div class='media-heading'>\
+                                <h4>"+ response.reply[key].name + "</h4>\
+                                <span class='time'>"+ response.reply[key].created_on + "</span>\
+                            </div>\
+                            <p>"+ response.reply[key].message + "</p>\
+                        </div>\
+                    </div>"
+
+                    $("#replies").append(temp)
+                }
+            }
+        })
+
+        $(document).on('submit', '#reply_form', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'Reply' comment.post.categories.get comment.post.title comment.id %}",
+                data: {
+                    name: $('#reply_name').val(),
+                    email: $('#reply_email').val(),
+                    message: $('#reply_message').val(),
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function (data) {
+
+                    // Clears the form
+                    $("#reply_form").trigger('reset');
+
+                    $.ajax({
+                        type: 'GET',
+                        url: "{% url 'getReplies' comment.id %}",
+                        success: function (response) {
+
+                            $("#reply_count").empty()
+                            $("#replies").empty()
+
+                            var reply_count = "\
+                            <div class='section-title' id='reply_count'>\
+                                <h2 id='count'>"+ response.reply.length + " Replies</h2>\
+                            </div>"
+
+                            $("#reply_count").append(reply_count)
+
+                            var comment = "\
+                            <div class='media-heading'>\
+                                <h4>{{ comment.name }}</h4>\
+                                <span class='time'>{{ comment.created_on | date }} at {{ comment.created_on | time }}</span>\
+                            </div>\
+                            <p>{{ comment.message }}</p>"
+
+                            $('#replies').append(comment)
+
+                            for (var key in response.reply) {
+                                var temp = "\
+                            <div class='media'>\
+                                <div class='media-left'>\
+                                    <img class='media-object' src='{% static 'img/avatar.png' %}' alt='>\
+                                </div>\
+                                <div class='media-body'>\
+                                    <div class='media-heading'>\
+                                        <h4>"+ response.reply[key].name + "</h4>\
+                                        <span class='time'>"+ response.reply[key].created_on + "</span>\
+                                    </div>\
+                                    <p>"+ response.reply[key].message + "</p>\
+                                </div>\
+                            </div>"
+
+                                $("#replies").append(temp)
+                            }
+                            var message = "\
+                            <p class='msg'>{% for messages in messages %}{{ messages }}{% endfor %}</p>"
+
+                            $('#message').append(message)
+                        }
+                    })
+                }
+            })
+        })
+    })
+</script>
+{% endblock javascript %}
+{% endblock %}
