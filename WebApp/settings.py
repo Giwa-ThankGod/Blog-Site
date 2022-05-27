@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fwy9bc(ud*@3f)!u0!=p#r*(sot0@(h-ml%$q!xq!9(qey!zpo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -133,9 +133,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hxq5pgxir',
-    'API_KEY': '347529347872777',
-    'API_SECRET': 'lzI-qBEdUywRT3JG52f3Cnd9d9Y',
+    'CLOUD_NAME': 'hl6kmb0r8',
+    'API_KEY': '652338764552968',
+    'API_SECRET': 'xcXUT_GcIB3aLXYul6GMRnJ0vqU',
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
